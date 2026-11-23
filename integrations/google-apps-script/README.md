@@ -6,7 +6,7 @@ Status: de nieuwe webapp is geconfigureerd. Een test vanuit Apps Script verstuur
 
 De bijgewerkte `Code.gs` accepteert de optionele velden `reviewerRole` en `profession` en schrijft ze naar kolommen G en H. Ook oude formulieren zonder deze velden blijven werken. De eigenaar heeft een nieuwe webapp-URL aangeleverd; een test bevestigde opslag van beide velden in beide tabbladen. De kolomkoppen G/H zijn toegevoegd en bestaande data behouden. De eerder gebruikte webapp-URL is een andere implementatie en mag niet voor deze nieuwe velden worden gebruikt zonder afzonderlijke verificatie.
 
-De beroepslijst is een voorstel: de volledige eerdere lijst was niet zichtbaar in de aangeleverde afbeelding. Voor beide velden worden vaste, Nederlandse waarden opgeslagen, ook vanuit de Arabische interface. Dit maakt filteren in beide overzichten eenvoudig. De velden zijn optioneel om geen onnodige persoonsgegevens af te dwingen. Deze informatie kan in combinatie met andere gegevens identificerend zijn; beperk inzage en vraag geen namen of andere persoonsgegevens.
+De website toont als rol alleen Leerling, Ouder / verzorger en Anders. De backend accepteert ook de eerdere rolwaarden voor oude open formulieren. De beroepslijst is een voorstel: de volledige eerdere lijst was niet zichtbaar in de aangeleverde afbeelding. Voor beide velden worden vaste, Nederlandse waarden opgeslagen, ook vanuit de Arabische interface. Dit maakt filteren in beide overzichten eenvoudig. De velden zijn optioneel om geen onnodige persoonsgegevens af te dwingen. Deze informatie kan in combinatie met andere gegevens identificerend zijn; beperk inzage en vraag geen namen of andere persoonsgegevens.
 
 ## Eenmalige activatie door de eigenaar
 
