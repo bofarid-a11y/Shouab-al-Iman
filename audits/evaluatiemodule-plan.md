@@ -4,9 +4,9 @@
 
 De twee bestaande websiteformulieren vragen groep, taal, duidelijkheid en leeftijdsgeschiktheid (verplicht), en een opmerking (optioneel). Er is geen naamveld. De optionele rolkeuzes blijven **Leerling**, **Ouder / verzorger** en **Anders**; beroep staat apart en bevat **Student**. Groep en taal worden al vanuit de digitale les meegenomen; bij een rechtstreeks bezoek kunnen ze worden gekozen. Dat is een aanwijzing van de bezoeker, geen bewijs welk materiaal werkelijk is bekeken. De gebruikte lestaal bepaalt het tabblad, niet de interfacetaal.
 
-De huidige webapp schrijft de oorspronkelijke antwoorden naar A–H van de twee privé bedoelde lestabbladen. Apps Script-testverzoeken zijn in beide tabbladen gecontroleerd; volledige browserinzendingen van de actuele formulieren zijn nog niet bevestigd. De voorbereide webappcode wordt niet automatisch geactiveerd door publicatie van de website.
+Na uitvoering van de Apps Script-test door de eigenaar zijn nieuwe NL- en AR-testregels met A–K in de juiste tabbladen gecontroleerd. De eigenaar gaf een nieuw webapp-adres door en meldde de test hierop te hebben uitgevoerd. De websiteconfiguratie is daarop aangepast; volledige browserinzendingen van de actuele formulieren moeten nog worden bevestigd.
 
-## Voorbereid: betrouwbaar herkennen van nieuwe beoordelingen
+## Registratie van nieuwe beoordelingen
 
 De nieuwe `integrations/google-apps-script/Code.gs` voegt aan **nieuwe** inzendingen toe:
 
@@ -16,7 +16,7 @@ De nieuwe `integrations/google-apps-script/Code.gs` voegt aan **nieuwe** inzendi
 | J | Lescode, afgeleid van de gekozen groep en lestaal: `CUR001-K01-L01-G3-NL` enz. |
 | K | Lesversie: `Niet vastgesteld` zolang niet betrouwbaar bekend is welke versie, papier of digitaal, is beoordeeld |
 
-Er wordt geen oude reactie veranderd of achteraf een versie verzonnen. UUID's zijn praktisch uniek, maar geven geen bescherming of recht op inzage. De code controleert de verwachte koppen en schrijft niet als ze ontbreken. De exacte procedure en volgorde staan in de integratie-README. I–K is gecontroleerd en de koppen zijn voorbereid; van het overzicht is een back-up gemaakt. Controleer de situatie opnieuw vóór het inzetten van de nieuwe webappversie en test daarna beide talen werkelijk. Zolang dat niet is gebeurd werkt de huidige, ongewijzigde webapp met A–H. Een lescode is geen betrouwbare versie-identificatie. Een latere versie-identificatie vereist een eenduidig vastgestelde bron en koppeling voor papier én digitaal.
+Er wordt geen oude reactie veranderd of achteraf een versie verzonnen. UUID's zijn praktisch uniek, maar geven geen bescherming of recht op inzage. De code controleert de verwachte koppen en schrijft niet als ze ontbreken. De exacte procedure en volgorde staan in de integratie-README. I–K is gecontroleerd en de koppen zijn voorbereid; van het overzicht is een back-up gemaakt. De Apps Script-test leverde nieuwe regels met I–K in beide tabbladen op; controleer daarnaast de gepubliceerde formulieren met herkenbare echte browserinzendingen in beide talen. Een lescode is geen betrouwbare versie-identificatie. Een latere versie-identificatie vereist een eenduidig vastgestelde bron en koppeling voor papier én digitaal.
 
 ## Beheer en bewaren van geschiedenis
 
@@ -31,7 +31,7 @@ Een pilot is vrijwillig en mag geen voorwaarde zijn om te beoordelen. Er is nu *
 ## Nog controleren
 
 - Bestaande sheetrechten en huidige gegevens, inclusief vrije kolommen, zonder gegevens te verwijderen.
-- Na voorbereiding: live webapp-POST-test voor beide lestalen, historische gegevens en oudere formulieren; daarna echte browserinzendingen NL/AR met herkenbare tests en opslag in het juiste tabblad.
+- Echte browserinzendingen NL/AR met herkenbare tests en opslag in het juiste tabblad; controleer ook historische gegevens en oudere formulieren.
 - Toegankelijkheid met toetsenbord en schermlezer, iPhone/Safari en de Arabische tekst door een menselijke taalbeoordelaar. Simulaties zijn hiervoor geen vervanging.
 - Spam, Google-quota, bewaartermijn, inzage- en verwijderverzoeken; het publiek aanroepbare schrijfadres is geen beveiliging tegen misbruik.
 - Afzonderlijke autorisatie en feitelijke bouw/test van eventuele dashboards; geen beheergegevens in GitHub Pages of in client-side code plaatsen.

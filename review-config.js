@@ -1,2 +1,2 @@
 // Public write-only endpoint; it is not a credential or spam protection.
-window.CUR001_REVIEW_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw-y0Zn1blMjRLiwnr7pA0DRprHyIX-CSzeG-UElmM8yq6ZcCx7uVUzDDuA58WtpjEA/exec';
+window.CUR001_REVIEW_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwokfvvTH7QOkcRrh3o9IjNlAwlff8DRebvoxMYfCe8Ll7u_0RIHj1LBm6b4FmnqpPk/exec';
