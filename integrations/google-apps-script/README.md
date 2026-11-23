@@ -1,6 +1,12 @@
 # Beoordelingen met Google Apps Script
 
-Status: de webapp is geconfigureerd. Een test vanuit Apps Script verstuurde twee POST-verzoeken; de NL- en AR-testregels zijn in hun juiste tabbladen gecontroleerd. Een daadwerkelijke browserinzending via de gepubliceerde website moet nog worden gecontroleerd. De bestaande vragen zijn ongewijzigd. De formulieren blijven uitgeschakeld als `review-config.js` geen geldig webapp-adres bevat.
+Status: de nieuwe webapp is geconfigureerd. Een test vanuit Apps Script verstuurde twee POST-verzoeken met rol Leerling en beroep Student; de NL- en AR-testregels zijn in de juiste tabbladen en kolommen gecontroleerd. Een daadwerkelijke browserinzending via de vernieuwde gepubliceerde website moet nog worden gecontroleerd. De bestaande vragen zijn ongewijzigd. De formulieren blijven uitgeschakeld als `review-config.js` geen geldig webapp-adres bevat.
+
+## Uitbreiding: rol en beroep
+
+De bijgewerkte `Code.gs` accepteert de optionele velden `reviewerRole` en `profession` en schrijft ze naar kolommen G en H. Ook oude formulieren zonder deze velden blijven werken. De eigenaar heeft een nieuwe webapp-URL aangeleverd; een test bevestigde opslag van beide velden in beide tabbladen. De kolomkoppen G/H zijn toegevoegd en bestaande data behouden. De eerder gebruikte webapp-URL is een andere implementatie en mag niet voor deze nieuwe velden worden gebruikt zonder afzonderlijke verificatie.
+
+De beroepslijst is een voorstel: de volledige eerdere lijst was niet zichtbaar in de aangeleverde afbeelding. Voor beide velden worden vaste, Nederlandse waarden opgeslagen, ook vanuit de Arabische interface. Dit maakt filteren in beide overzichten eenvoudig. De velden zijn optioneel om geen onnodige persoonsgegevens af te dwingen. Deze informatie kan in combinatie met andere gegevens identificerend zijn; beperk inzage en vraag geen namen of andere persoonsgegevens.
 
 ## Eenmalige activatie door de eigenaar
 

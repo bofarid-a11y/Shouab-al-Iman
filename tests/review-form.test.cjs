@@ -32,9 +32,11 @@ for (const [file, uiLang, lessonLang] of [['index.html', 'NL', 'AR'], ['ar.html'
   form.elements.clarity.value = '4';
   form.elements.suitability.value = '5';
   form.elements.suggestion.value = 'TEST';
+  form.querySelector('input[name=reviewerRole][value=Imam]').checked = true;
+  form.elements.profession.value = 'Imam / islamitisch docent';
   assert.equal(form.checkValidity(), true);
   assert.deepEqual(Object.fromEntries(new dom.window.FormData(form)), {
-    uiLang, grade: '7', lang: lessonLang, clarity: '4', suitability: '5', suggestion: 'TEST'
+    uiLang, reviewerRole: 'Imam', profession: 'Imam / islamitisch docent', grade: '7', lang: lessonLang, clarity: '4', suitability: '5', suggestion: 'TEST'
   });
   dom.window.close();
 }
