@@ -8,6 +8,8 @@ const SHEET_IDS = { NL: 1950680904, AR: 1532437282 };
 const ROLES = ['Ouder / verzorger', 'Leerling', 'Leerkracht / docent', 'Imam', 'Opvoeder / pedagogisch medewerker', 'Onderwijsdeskundige', 'Anders'];
 const PROFESSIONS = ['Student', 'Leerkracht / docent', 'Schoolleider / onderwijsmanagement', 'Onderwijsdeskundige / onderwijsadviseur', 'Pedagoog / pedagogisch medewerker', 'Imam / islamitisch docent', 'Onderzoeker / wetenschapper', 'Vertaler / taalkundige', 'Anders'];
 const WEBSITE = 'https://bofarid-a11y.github.io/Shouab-al-Iman/';
+// Prepared migration: I–K must first be verified empty and given these headers.
+const REGISTER_HEADERS = ['Referentie', 'Lescode', 'Lesversie'];
 
 function doPost(e) {
   const params = (e && e.parameter) || {};
@@ -39,7 +41,15 @@ function doPost(e) {
   try {
     const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheets().find(s => s.getSheetId() === SHEET_IDS[lang]);
     if (!sheet) throw new Error('Sheet not found');
-    sheet.appendRow([new Date(), grade, lang, clarity, suitability, safeSuggestion, reviewerRole, profession]);
+    // Fail closed if the owner has not prepared the expected columns. Never
+    // silently append into an unknown spreadsheet layout. Existing A–H remain.
+    const headers = sheet.getRange(1, 9, 1, 3).getValues()[0];
+    if (!REGISTER_HEADERS.every((header, i) => headers[i] === header)) throw new Error('Register columns not prepared');
+    const reference = 'EV-' + Utilities.getUuid().toUpperCase();
+    const lessonCode = 'CUR001-K01-L01-G' + grade + '-' + lang;
+    // The public form also accepts direct visits and paper evaluations. Do not
+    // invent a version when the exact material assessed cannot be established.
+    sheet.appendRow([new Date(), grade, lang, clarity, suitability, safeSuggestion, reviewerRole, profession, reference, lessonCode, 'Niet vastgesteld']);
     SpreadsheetApp.flush();
     return output(true);
   } catch (err) {

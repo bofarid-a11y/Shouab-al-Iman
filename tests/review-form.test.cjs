@@ -10,6 +10,8 @@ for (const [file,language] of [['index.html','NL'],['ar.html','AR']]) {
   const form=dom.window.document.querySelector('#feedbackForm form');
   assert.equal(form.querySelector('fieldset').disabled,!valid);
   assert.equal(form.elements.uiLang.value,language);
+  assert.equal(form.elements.grade.value, '');
+  assert.equal(form.elements.lang.value, '');
   if(valid){assert.equal(form.method,'post');assert.equal(form.action,dom.window.CUR001_REVIEW_ENDPOINT);}
   assert.deepEqual(errors,[]);dom.window.close();
  }
@@ -39,6 +41,14 @@ for (const [file, uiLang, lessonLang] of [['index.html', 'NL', 'AR'], ['ar.html'
   assert.deepEqual(Object.fromEntries(new dom.window.FormData(form)), {
     uiLang, reviewerRole: 'Leerling', profession: 'Imam / islamitisch docent', grade: '7', lang: lessonLang, clarity: '4', suitability: '5', suggestion: 'TEST'
   });
+  const button = form.querySelector('button');
+  form.dispatchEvent(new dom.window.Event('submit', {bubbles:true, cancelable:true}));
+  assert.equal(button.disabled, true);
+  const secondSubmit = new dom.window.Event('submit', {bubbles:true, cancelable:true});
+  form.dispatchEvent(secondSubmit);
+  assert.equal(secondSubmit.defaultPrevented, true);
+  dom.window.dispatchEvent(new dom.window.Event('pageshow'));
+  assert.equal(button.disabled, false);
   dom.window.close();
 }
 console.log('OK: echte configuratie en formuliervelden voor beide interfaces gesimuleerd, inclusief verschillende lestaal.');

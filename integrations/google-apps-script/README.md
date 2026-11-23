@@ -1,12 +1,18 @@
 # Beoordelingen met Google Apps Script
 
-Status: de nieuwe webapp is geconfigureerd. Een test vanuit Apps Script verstuurde twee POST-verzoeken met rol Leerling en beroep Student; de NL- en AR-testregels zijn in de juiste tabbladen en kolommen gecontroleerd. Een daadwerkelijke browserinzending via de vernieuwde gepubliceerde website moet nog worden gecontroleerd. De bestaande vragen zijn ongewijzigd. De formulieren blijven uitgeschakeld als `review-config.js` geen geldig webapp-adres bevat.
+Status: de bestaande webapp is geconfigureerd. Een test vanuit Apps Script verstuurde twee POST-verzoeken met rol Leerling en beroep Student; de NL- en AR-testregels zijn in de juiste tabbladen en kolommen gecontroleerd. Een daadwerkelijke browserinzending via de vernieuwde gepubliceerde website moet nog worden gecontroleerd. De bestaande vragen zijn ongewijzigd. De formulieren blijven uitgeschakeld als `review-config.js` geen geldig webapp-adres bevat.
 
 ## Uitbreiding: rol en beroep
 
-De bijgewerkte `Code.gs` accepteert de optionele velden `reviewerRole` en `profession` en schrijft ze naar kolommen G en H. Ook oude formulieren zonder deze velden blijven werken. De eigenaar heeft een nieuwe webapp-URL aangeleverd; een test bevestigde opslag van beide velden in beide tabbladen. De kolomkoppen G/H zijn toegevoegd en bestaande data behouden. De eerder gebruikte webapp-URL is een andere implementatie en mag niet voor deze nieuwe velden worden gebruikt zonder afzonderlijke verificatie.
+De bestaande live webapp accepteert de optionele velden `reviewerRole` en `profession` en schrijft ze naar kolommen G en H. Ook oude formulieren zonder deze velden blijven werken. De eigenaar heeft een nieuwe webapp-URL aangeleverd; een test bevestigde opslag van beide velden in beide tabbladen. De kolomkoppen G/H zijn toegevoegd en bestaande data behouden. De eerder gebruikte webapp-URL is een andere implementatie en mag niet voor deze nieuwe velden worden gebruikt zonder afzonderlijke verificatie.
 
 De website toont als rol alleen Leerling, Ouder / verzorger en Anders. De backend accepteert ook de eerdere rolwaarden voor oude open formulieren. De beroepslijst is een voorstel: de volledige eerdere lijst was niet zichtbaar in de aangeleverde afbeelding. Voor beide velden worden vaste, Nederlandse waarden opgeslagen, ook vanuit de Arabische interface. Dit maakt filteren in beide overzichten eenvoudig. De velden zijn optioneel om geen onnodige persoonsgegevens af te dwingen. Deze informatie kan in combinatie met andere gegevens identificerend zijn; beperk inzage en vraag geen namen of andere persoonsgegevens.
+
+## Voorbereide uitbreiding voor registratie — nog niet live
+
+De `Code.gs` in deze repository is een **voorbereide nieuwe versie**, niet de huidige live code. De nieuwe versie bewaart naast A–H een unieke referentie (I), de lescode afgeleid van groep en taal (J) en `Niet vastgesteld` als lesversie (K). De precieze beoordeelde versie is namelijk niet altijd bekend. De code controleert de kolomkoppen en weigert opslag als die niet exact overeenkomen; kopieer of implementeer hem dus **niet** voordat beide tabbladen zijn voorbereid en getest. Eerdere beoordelingen blijven behouden en krijgen niet automatisch een referentie of lesversie.
+
+Bij de voorbereiding zijn I:K in beide tabbladen gecontroleerd op bestaande waarden; een kopie van het overzicht is gemaakt en de koppen `Referentie`, `Lescode`, `Lesversie` zijn in I1:K1 geplaatst. Controleer voor implementatie dat deze koppen en de back-up nog aanwezig zijn. Gebruik de bestaande webapp-implementatie en implementeer de nieuwe code als nieuwe versie, met behoud van de testfunctie. Test vervolgens via `/exec` oude formulieren en nieuwe testinzendingen voor beide lestalen, en controleer alle kolommen. Als de controle faalt, laat de oude implementatie actief. Zie ook [het plan](../../audits/evaluatiemodule-plan.md).
 
 ## Eenmalige activatie door de eigenaar
 
