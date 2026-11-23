@@ -1,0 +1,144 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CUR001 | Les 1 / الدرس الأول</title><style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#173a30;background:#f4f7f5}*{box-sizing:border-box}body{margin:0}main{max-width:860px;margin:auto;padding:18px}header{background:#135342;color:white;padding:22px;border-radius:0 0 22px 22px}header h1{font-size:1.45rem;margin:6px 0}header p{opacity:.88;margin:0}nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}select,button{font:inherit;padding:12px 15px;border:1px solid #b8cdc5;border-radius:12px;background:white;color:#153c31;min-height:46px}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #dbac37}button.primary{background:#135342;color:white}fieldset{border:0;padding:0;margin:14px 0}.quiz-choice{display:flex;align-items:flex-start;gap:12px;padding:14px;margin:8px 0;border:1px solid #b8cdc5;border-radius:12px;cursor:pointer;min-height:48px}.quiz-choice input{width:21px;height:21px;flex-shrink:0;margin-top:5px;accent-color:#135342}.quiz-choice:focus-within{outline:3px solid #dbac37}.quiz-choice span{flex:1}button:disabled{opacity:.55;cursor:not-allowed}article{background:white;border:1px solid #d9e5df;border-radius:18px;padding:20px;margin:14px 0;line-height:1.85}h2{font-size:1.12rem;margin:0 0 10px}#story{font-size:1.2rem;line-height:2.05}small,.note{color:#526d63}.pill{display:inline-block;background:#e9f0ec;padding:3px 9px;border-radius:9px;font-size:.78rem}#feedback{font-weight:600;min-height:24px}.choices{display:flex;flex-wrap:wrap;gap:10px}.choices button{flex:1 1 200px}.rtl{direction:rtl;text-align:right}footer{padding:25px 5px;color:#526d63;font-size:.85rem}@media print{header{background:white;color:black}nav,.no-print{display:none!important}article{break-inside:avoid;border-color:#999}body{background:white}main{max-width:none}}</style><link rel="stylesheet" href="phone.css"></head><body><header><main><span class="pill" style="color:#173a30">CUR001 · v0.4 CANDIDATE</span><h1 id="appTitle">من التوحيد إلى الإحسان | Van Eenheid naar Ihsan</h1><p id="sub">Digital companion · Niet vrijgegeven / غير معتمد</p></main></header><main><nav><label>Groep / الصف <select id="grade"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label><label>Taal / اللغة <select id="lang"><option value="NL">Nederlands</option><option value="AR">العربية</option></select></label><button id="print" class="no-print">🖨️ A4 / طباعة</button></nav><p><a id="evaluate" href="index.html#feedbackForm">Les beoordelen / تقييم الدرس</a></p><div id="lesson"><article id="goalCard"><h2 id="goalHead"></h2><div id="goal"></div></article><article><h2 id="storyHead"></h2><div id="story"></div><button id="speak" class="no-print">🔊 <span id="speakLabel"></span></button><small id="speechNote"></small></article><article><h2 id="qHead"></h2><div id="questions"></div><fieldset id="quizOptions" class="no-print" aria-label="Antwoordkeuzes"></fieldset><div class="choices no-print"><button id="checkAnswer" class="primary" type="button"></button><button id="needHelp" type="button"></button><button id="tryAgain" type="button" hidden></button></div><p id="feedback" role="status" aria-live="polite"></p><p id="reflection" class="note" hidden></p></article><article><h2 id="activityHead"></h2><div id="activity"></div><div class="choices no-print"><button id="activityDone" class="primary"></button><button id="activitySkip"></button></div></article><article><h2 id="closeHead"></h2><div id="closing"></div></article></div><footer id="foot"></footer></main>
+<script id="data" type="application/json">{
+  "3-AR": {
+    "title": "CUR001-K01-L01-G3-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G3_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يسمّي المحبة والشكر ويختار فعلًا لطيفًا",
+    "story": "في الصَّفِّ، ساعدتْ مريمُ صديقتَها في ترتيبِ الكتب. قالتْ: أُحِبُّ الخيرَ، وأَشْكُرُ اللهَ على ما أَتَعَلَّمُهُ.",
+    "questions": "ما الفعل اللطيف؟ كيف نشكر؟",
+    "activity": "يرسم أو يختار بطاقة فعل لطيف ويصفه شفهيًا",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "3-NL": {
+    "title": "CUR001-K01-L01-G3-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G3_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan liefde en dankbaarheid benoemen en een vriendelijke handeling kiezen.",
+    "story": "Mariam helpt een klasgenoot met het opruimen van boeken. Ze is dankbaar dat ze kan leren.",
+    "questions": "Wat deed Mariam? Hoe kun jij dankbaarheid laten zien?",
+    "activity": "Teken of kies een kaart met een vriendelijke handeling. Vertel wat je hebt gekozen.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  },
+  "4-AR": {
+    "title": "CUR001-K01-L01-G4-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G4_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يشرح سببًا بسيطًا للشكر وحسن المعاملة",
+    "story": "رأى سامي زميلًا يحتاج إلى مساعدة في الصف. اختار أن يساعده برفق، ثم قال: أشكر الله على فرصة أن أفعل الخير.",
+    "questions": "لماذا اختار سامي المساعدة؟ ماذا تغير بعد فعله؟",
+    "activity": "يذكر سببًا واحدًا لسلوك لطيف ويجربه بإشراف",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "4-NL": {
+    "title": "CUR001-K01-L01-G4-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G4_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan uitleggen waarom dankbaarheid en vriendelijkheid belangrijk zijn.",
+    "story": "Sami ziet dat een klasgenoot hulp nodig heeft. Hij helpt rustig en is dankbaar dat hij iets goeds kan doen.",
+    "questions": "Waarom helpt Sami? Wat verandert er?",
+    "activity": "Noem één reden om vriendelijk te handelen en oefen dit onder begeleiding.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  },
+  "5-AR": {
+    "title": "CUR001-K01-L01-G5-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G5_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يقارن أثر الصدق واللطف في موقفين",
+    "story": "في موقفٍ أول، اعترف طفل بخطئه وساعد على إصلاحه. وفي موقفٍ ثانٍ، أخفى طفل خطأه فازدادت المشكلة. نتعلّم أن المحبة تظهر في الصدق والرفق.",
+    "questions": "قارن الموقفين: ما نتيجة الصدق؟ وما أثر إخفاء الخطأ؟",
+    "activity": "جدول مقارنة موقفين مع سبب ونتيجة",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "5-NL": {
+    "title": "CUR001-K01-L01-G5-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G5_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan twee situaties vergelijken en uitleggen hoe eerlijkheid en zorgzaamheid werken.",
+    "story": "In de eerste situatie geeft een leerling een fout toe en helpt die herstellen. In de tweede situatie wordt een fout verborgen.",
+    "questions": "Wat zijn de gevolgen van beide keuzes?",
+    "activity": "Vergelijk twee situaties in een tabel. Noteer bij elke keuze een gevolg.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  },
+  "6-AR": {
+    "title": "CUR001-K01-L01-G6-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G6_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يطبّق قيمة المحبة على موقف جديد ويقترح بدائل",
+    "story": "اختلفت مجموعة حول توزيع العمل. أراد بعضهم إنجاز المهمة بسرعة، بينما شعر آخرون أنهم لم يُسمَعوا. اقترح أحدهم أن يتحدث كل شخص بدوره وأن تُوزّع المهام بعدل.",
+    "questions": "ما الخيارات المتاحة؟ كيف يجتمع اللطف والعدل؟",
+    "activity": "يقترح حلين ويختار واحدًا مع تعليل",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "6-NL": {
+    "title": "CUR001-K01-L01-G6-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G6_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan bij een nieuwe situatie meerdere oplossingen bedenken en een keuze onderbouwen.",
+    "story": "Een groep verdeelt taken. Sommige leerlingen voelen zich niet gehoord. Ze zoeken samen naar een eerlijke en vriendelijke oplossing.",
+    "questions": "Welke oplossingen zijn er? Waarom kies je er één?",
+    "activity": "Bedenk twee oplossingen, kies er één en leg uit waarom.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  },
+  "7-AR": {
+    "title": "CUR001-K01-L01-G7-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G7_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يناقش الفرق بين القول والقدوة دون وصم",
+    "story": "يقول طالب إن الاحترام مهم، لكنه يقاطع زملاءه حين يتحدثون. لاحظ زميله التناقض، فاختار أن ينصحه بلطف بدل أن يحرجه أمام الآخرين.",
+    "questions": "كيف نناقش التناقض بين القول والفعل دون إهانة؟",
+    "activity": "حوار ثنائي يتضمن نصيحة محترمة وحدودها",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "7-NL": {
+    "title": "CUR001-K01-L01-G7-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G7_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan het verschil tussen woorden en gedrag bespreken zonder iemand te beschamen.",
+    "story": "Een leerling zegt dat respect belangrijk is, maar onderbreekt anderen. Een klasgenoot spreekt hem rustig aan.",
+    "questions": "Hoe bespreek je het verschil tussen woorden en daden?",
+    "activity": "Oefen met een klasgenoot een respectvol gesprek en bespreek de grenzen van advies.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  },
+  "8-AR": {
+    "title": "CUR001-K01-L01-G8-AR — أحب الله ورسوله ﷺ",
+    "source": "CUR001_K01_L01_G8_AR_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "يصوغ قاعدة سلوك مبررة ويقيّم أثرها",
+    "story": "نظّم الطلاب مبادرة مساعدة في المدرسة. أرادوا أن تكون المبادرة نافعة، لكنهم أدركوا أن النية الحسنة لا تكفي: يجب الاستماع إلى احتياجات الآخرين، واحترام الحدود، ومراجعة النتائج.",
+    "questions": "كيف نضع قاعدة عادلة للمساعدة؟ متى نراجعها؟",
+    "activity": "خطة مبادرة آمنة: هدف، أدوار، حدود، مراجعة",
+    "closing": "أفكر في عمل طيب أستطيع فعله اليوم، وأحترم اختيار الآخرين."
+  },
+  "8-NL": {
+    "title": "CUR001-K01-L01-G8-NL — Ik houd van Allah en Zijn Boodschapper ﷺ",
+    "source": "CUR001_K01_L01_G8_NL_v0.2_EDITORIAL_CANDIDATE.md",
+    "goal": "Ik kan een onderbouwde gedragsregel formuleren en het effect ervan evalueren.",
+    "story": "Leerlingen organiseren een hulpactie. Ze ontdekken dat goede bedoelingen alleen niet genoeg zijn: luisteren, grenzen respecteren en evalueren zijn ook nodig.",
+    "questions": "Welke regel past hierbij? Hoe toets je het effect?",
+    "activity": "Maak een veilig plan voor een hulpactie: doel, rollen, grenzen en evaluatie.",
+    "closing": "Bedenk één vriendelijke handeling voor vandaag. Respecteer ook de keuze van een ander."
+  }
+}</script><script>
+const Q={"3-AR": {"prompt": "ما الفعل اللطيف الذي قامت به مريم؟", "options": ["ساعدت صديقتها في ترتيب الكتب", "أخفت كتب صديقتها", "ضحكت على صديقتها"], "correct": 0, "explanation": "المساعدة فعل لطيف؛ لأنها تجعل التعاون أسهل.", "reflection": "فكّر في موقف يمكنك فيه المساعدة دون أن تُحرج أحدًا."}, "3-NL": {"prompt": "Wat deed Mariam op een vriendelijke manier?", "options": ["Ze hielp met het opruimen van boeken", "Ze verstopte de boeken", "Ze lachte haar klasgenoot uit"], "correct": 0, "explanation": "Helpen is vriendelijk: samen gaat opruimen makkelijker.", "reflection": "Bedenk hoe je iemand kunt helpen zonder diegene te beschamen."}, "4-AR": {"prompt": "لماذا كان اختيار سامي المساعدة مناسبًا؟", "options": ["لأنه رأى حاجة زميله وتصرف برفق", "ليحصل على مديح الجميع", "ليقرر بدلًا من زميله دون سؤاله"], "correct": 0, "explanation": "اللطف يراعي حاجة الآخر ويحترم اختياره.", "reflection": "متى يكون من الأفضل أن تسأل: هل تريد مساعدتي؟"}, "4-NL": {"prompt": "Waarom was Sami’s keuze passend?", "options": ["Hij zag dat hulp nodig was en handelde rustig", "Hij wilde vooral complimenten", "Hij besliste zonder te vragen wat de ander wilde"], "correct": 0, "explanation": "Vriendelijkheid houdt rekening met wat de ander nodig heeft.", "reflection": "Wanneer kun je beter eerst vragen: wil je hulp?"}, "5-AR": {"prompt": "أي نتيجة تساعد على إصلاح الخطأ؟", "options": ["الاعتراف بالخطأ ومحاولة إصلاحه", "إخفاء الخطأ وترك المشكلة تكبر", "إلقاء اللوم على شخص آخر"], "correct": 0, "explanation": "الصدق يساعدنا على فهم المشكلة وإصلاحها دون إهانة.", "reflection": "اذكر طريقة آمنة للاعتراف بخطأ صغير وإصلاحه."}, "5-NL": {"prompt": "Welke keuze helpt een fout herstellen?", "options": ["Een fout toegeven en helpen herstellen", "De fout verbergen zodat het probleem groeit", "De schuld aan iemand anders geven"], "correct": 0, "explanation": "Eerlijkheid helpt om een probleem te begrijpen en te herstellen.", "reflection": "Bedenk een veilige manier om een kleine fout goed te maken."}, "6-AR": {"prompt": "ما الخطوة الأولى الأفضل عند الخلاف على توزيع المهام؟", "options": ["نستمع للجميع ثم نوزع المهام بعدل", "نترك القرار لمن يتحدث بأعلى صوت", "نتجاهل من لم يُسمَع"], "correct": 0, "explanation": "الاستماع يوضح الاحتياجات قبل الاتفاق على حل عادل.", "reflection": "اقترح حلًا ثانيًا إذا لم ينجح تقسيم المهام الأول."}, "6-NL": {"prompt": "Wat is een goede eerste stap bij een oneerlijke taakverdeling?", "options": ["Iedereen laten uitspreken en daarna eerlijk verdelen", "De luidste leerling laten beslissen", "Niet luisteren naar stille leerlingen"], "correct": 0, "explanation": "Door eerst te luisteren, begrijp je wat iedereen nodig heeft.", "reflection": "Bedenk een tweede oplossing als de eerste taakverdeling niet werkt."}, "7-AR": {"prompt": "كيف ننبه زميلًا يقاطع الآخرين دون إحراجه؟", "options": ["نتحدث معه باحترام وعلى انفراد إن أمكن", "نسخر منه أمام الصف", "نصفه بأنه شخص سيئ"], "correct": 0, "explanation": "يمكن نقد السلوك باحترام دون الحكم على قيمة الشخص.", "reflection": "صُغ جملة نصح تبدأ بـ: لاحظتُ... هل يمكن أن...؟"}, "7-NL": {"prompt": "Hoe spreek je een klasgenoot aan zonder hem te beschamen?", "options": ["Rustig en respectvol, zo mogelijk apart", "Hem uitlachen voor de klas", "Zeggen dat hij een slecht mens is"], "correct": 0, "explanation": "Je kunt gedrag bespreken zonder iemand als persoon af te wijzen.", "reflection": "Maak een respectvolle zin die begint met: Ik merk... Zullen we...?"}, "8-AR": {"prompt": "ما الذي يجعل مبادرة المساعدة مسؤولة؟", "options": ["نسأل عن الاحتياجات ونحترم الحدود ونراجع النتائج", "نفترض أن الجميع يحتاج إلى الشيء نفسه", "ننشر أسماء المستفيدين دون إذن"], "correct": 0, "explanation": "المبادرة الجيدة تقوم على الاستماع والسلامة والخصوصية والتقييم.", "reflection": "حدد معيارًا بسيطًا لقياس نجاح المبادرة دون جمع بيانات شخصية."}, "8-NL": {"prompt": "Wat maakt een hulpactie verantwoord?", "options": ["Behoeften vragen, grenzen respecteren en evalueren", "Aannemen dat iedereen hetzelfde nodig heeft", "Namen van ontvangers zonder toestemming delen"], "correct": 0, "explanation": "Een verantwoorde hulpactie houdt rekening met behoefte, veiligheid en privacy.", "reflection": "Bedenk één manier om het resultaat te evalueren zonder persoonsgegevens te verzamelen."}};const D=JSON.parse(document.getElementById('data').textContent);const $=id=>document.getElementById(id);const ui={NL:{goal:'Wat leer je?',story:'Het verhaal',questions:'Denk en bespreek',activity:'Doe mee',closing:'Tot slot',speak:'Luister naar het verhaal',answered:'Ik heb antwoord gegeven',help:'Ik wil hulp',done:'Activiteit gedaan',skip:'Ik doe liever iets anders',thanks:'Goed dat je hebt meegedacht. Je hoeft geen persoonlijke dingen te vertellen.',support:'Vraag je leerkracht om hulp. Je mag ook tekenen of vertellen.',foot:'Dit is een niet-goedgekeurde demonstratie. Verhalen zijn zelfgeschreven; religieuze bronteksten worden pas na broncontrole toegevoegd. Geen gegevens worden verzonden of opgeslagen. Spraak gebruikt alleen de voorleesfunctie van het apparaat, als die beschikbaar is.'},AR:{goal:'ماذا سنتعلم؟',story:'القصة',questions:'نفكر ونتحدث',activity:'نشاطنا',closing:'في الختام',speak:'استمع إلى القصة',answered:'أجبت عن السؤال',help:'أحتاج مساعدة',done:'أنجزت النشاط',skip:'أختار نشاطًا بديلًا',thanks:'شكرًا لتفكيرك. لا يلزم أن تخبرنا بأمور شخصية.',support:'اطلب المساعدة من المعلم. يمكنك الإجابة بالرسم أو الكلام.',foot:'هذا نموذج تجريبي غير معتمد. القصص مؤلفة تربويًا، ولا تُضاف النصوص الشرعية حتى تُحقق. لا تُرسل البيانات ولا تُحفظ. القراءة الصوتية تستخدم إمكانات الجهاز إن توفرت.'}};
+function show(){if('speechSynthesis' in window) speechSynthesis.cancel();const g=$('grade').value,l=$('lang').value,k=`${g}-${l}`,d=D[k],t=ui[l];$('lesson').className=l==='AR'?'rtl':'';document.documentElement.dir=l==='AR'?'rtl':'ltr';document.documentElement.lang=l==='AR'?'ar':'nl';document.title=d.title;
+const reviewLink=document.getElementById('evaluate');
+reviewLink.href=(l==='AR'?'ar.html':'index.html')+'?reviewGrade='+g+'&reviewLang='+l+'#feedbackForm';
+reviewLink.textContent=l==='AR'?'تقييم هذا الدرس':'Deze les beoordelen';for(const [a,b] of [['goalHead','goal'],['storyHead','story'],['qHead','questions'],['activityHead','activity'],['closeHead','closing']])$(a).textContent=t[b];for(const a of ['goal','story','questions','activity','closing'])$(a).textContent=d[a]||'—';$('speakLabel').textContent=t.speak;$('needHelp').textContent=t.help;$('activityDone').textContent=t.done;$('activitySkip').textContent=t.skip;$('feedback').textContent='';$('reflection').hidden=true;$('reflection').textContent='';renderQuiz(k,l);$('foot').textContent=t.foot;$('speechNote').textContent='';const u=new URL(window.location.href);u.searchParams.set('grade','G'+g);u.searchParams.set('lang',l);history.replaceState(null,'',u);}
+
+const qUI={AR:{check:'تحقق من اختياري',help:'أحتاج إلى تلميح',retry:'أحاول من جديد',choose:'اختر إجابة أولًا.',correct:'أحسنت التفكير! ',retryMsg:'حاول مرة أخرى. اقرأ الخيارات وقارن بينها.',hint:'تذكر ما حدث في القصة: أي اختيار يحترم الآخرين ويساعدهم؟',reflect:'لنفكر أكثر: '},NL:{check:'Controleer mijn keuze',help:'Ik wil een hint',retry:'Probeer opnieuw',choose:'Kies eerst een antwoord.',correct:'Goed nagedacht! ',retryMsg:'Probeer opnieuw. Lees de keuzes en vergelijk ze.',hint:'Denk terug aan het verhaal: welke keuze helpt en respecteert anderen?',reflect:'Denk verder: '}};
+function renderQuiz(k,l){const q=Q[k],t=qUI[l],f=$('quizOptions');$('questions').textContent=q.prompt;f.replaceChildren();q.options.forEach((opt,i)=>{const label=document.createElement('label');label.className='quiz-choice';const input=document.createElement('input');input.type='radio';input.name='lessonChoice';input.value=String(i);const span=document.createElement('span');span.textContent=opt;label.append(input,span);f.append(label)});$('checkAnswer').textContent=t.check;$('needHelp').textContent=t.help;$('tryAgain').textContent=t.retry;$('tryAgain').hidden=true;$('checkAnswer').disabled=false;$('reflection').hidden=true;}
+$('checkAnswer').onclick=()=>{const l=$('lang').value,q=Q[$('grade').value+'-'+l],t=qUI[l],selected=document.querySelector('input[name="lessonChoice"]:checked');if(!selected){$('feedback').textContent=t.choose;return;}if(Number(selected.value)===q.correct){$('feedback').textContent=t.correct+q.explanation;$('reflection').textContent=t.reflect+q.reflection;$('reflection').hidden=false;$('checkAnswer').disabled=true;$('tryAgain').hidden=true;}else{$('feedback').textContent=t.retryMsg;$('tryAgain').hidden=false;}};
+$('tryAgain').onclick=()=>{document.querySelectorAll('input[name="lessonChoice"]').forEach(x=>x.checked=false);$('feedback').textContent='';$('reflection').hidden=true;$('tryAgain').hidden=true;};
+$('needHelp').onclick=()=>{$('feedback').textContent=qUI[$('lang').value].hint;};
+$('grade').onchange=show;$('lang').onchange=show;$('print').onclick=()=>window.print();$('activityDone').onclick=()=>{$('feedback').textContent=ui[$('lang').value].thanks};$('activitySkip').onclick=()=>{$('feedback').textContent=ui[$('lang').value].support};$('speak').onclick=()=>{if(!('speechSynthesis' in window)){ $('speechNote').textContent='Audio unavailable / الصوت غير متاح';return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance($('story').textContent);u.lang=$('lang').value==='AR'?'ar':'nl-NL';u.rate=.85;speechSynthesis.speak(u)};const params=new URLSearchParams(location.search);const grade=(params.get('grade')||'').replace(/^G/i,'');const lang=(params.get('lang')||'').toUpperCase();if(['3','4','5','6','7','8'].includes(grade))$('grade').value=grade;if(['AR','NL'].includes(lang))$('lang').value=lang;show();window.addEventListener('popstate',()=>{const q=new URLSearchParams(location.search),g=(q.get('grade')||'').replace(/^G/i,''),l=(q.get('lang')||'').toUpperCase();if(['3','4','5','6','7','8'].includes(g))$('grade').value=g;if(['AR','NL'].includes(l))$('lang').value=l;show()});
+</script><script>// Keep the original desktop navigation and its event handlers.
+const lessonNav = document.querySelector('nav');
+const menu = document.createElement('details');
+menu.className = 'lesson-menu no-print';
+const summary = document.createElement('summary');
+summary.textContent = 'Menu / القائمة';
+menu.append(summary);
+const phoneWidth = window.matchMedia('screen and (max-width: 767px)');
+function updateNavigation() {
+  if (phoneWidth.matches && !menu.isConnected) {
+    lessonNav.before(menu);
+    menu.append(lessonNav);
+  } else if (!phoneWidth.matches && menu.isConnected) {
+    menu.replaceWith(lessonNav);
+    menu.open = false;
+  }
+}
+phoneWidth.addEventListener('change', updateNavigation);
+updateNavigation();
+</script></body></html>

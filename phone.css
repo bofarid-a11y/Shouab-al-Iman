@@ -1,0 +1,28 @@
+/* Phone layout; screen-only so A4 styles retain their original sizes. */
+@media screen and (max-width: 767px) {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-size: max(16px, 1rem); overflow-wrap: anywhere; }
+  small, footer, .pill, .note, p[style*="font-size"], a, button, select {
+    font-size: max(16px, 1rem) !important;
+  }
+  img, video, canvas, svg, iframe, embed, object { max-inline-size: 100%; }
+  img, video, canvas, svg { block-size: auto; }
+  iframe, embed, object { box-sizing: border-box; }
+  main, article, fieldset, label, .quiz-choice span { min-inline-size: 0; }
+  a, button, select, summary, .quiz-choice {
+    min-inline-size: 44px; min-block-size: 44px; max-inline-size: 100%;
+  }
+  a { display: inline-flex; align-items: center; }
+  button, summary { white-space: normal; }
+  .lesson-menu { margin-block: 12px; }
+  .lesson-menu summary {
+    display: list-item; padding: 12px 16px; cursor: pointer;
+    color: #153c31; background: white; border: 1px solid #b8cdc5; border-radius: 12px;
+  }
+  .lesson-menu nav { display: grid; gap: 10px; margin: 10px 0; }
+  .lesson-menu label { display: grid; gap: 4px; }
+  .lesson-menu select { inline-size: 100%; }
+  .quiz-choice { align-items: center; }
+  summary:focus-visible { outline: 3px solid #956e18; outline-offset: 2px; }
+}
+@media screen and (max-width: 767px) { .qr-grid { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); } }
