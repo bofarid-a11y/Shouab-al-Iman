@@ -1,11 +1,12 @@
 const vm = require('node:vm');
 const fs = require('node:fs');
 const assert = require('node:assert/strict');
-let saved = [], locked = false, throws = false;
+let saved = [], locked = false, throws = false, prepared = true, sequence = 0;
 const context = vm.createContext({
   HtmlService: {createHtmlOutput: html => html},
   LockService: {getScriptLock: () => ({tryLock: () => true, releaseLock: () => { locked = false; }})},
-  SpreadsheetApp: {openById: () => ({getSheets: () => [1950680904,1532437282].map(id => ({getSheetId: () => id, appendRow: row => {if (throws) throw Error('unavailable'); saved.push({id,row});}}))}), flush() {}},
+  SpreadsheetApp: {openById: () => ({getSheets: () => [1950680904,1532437282].map(id => ({getSheetId: () => id, getRange: (row, col, rows, cols) => {assert.deepEqual([row,col,rows,cols],[1,9,1,3]); return {getValues: () => [prepared ? ['Referentie','Lescode','Lesversie'] : ['Andere kolom','','']]};}, appendRow: row => {if (throws) throw Error('unavailable'); saved.push({id,row});}}))}), flush() {}},
+  Utilities: {getUuid: () => `00000000-0000-4000-8000-${String(++sequence).padStart(12, '0')}`},
   Date,
 });
 vm.runInContext(fs.readFileSync('integrations/google-apps-script/Code.gs','utf8'), context);
@@ -21,6 +22,9 @@ assert.match(post({...valid, reviewerRole:'Imam', profession:'Imam / islamitisch
 assert.equal(saved[3].row[6], 'Imam'); assert.equal(saved[3].row[7], 'Imam / islamitisch docent');
 assert.match(post({...valid, lang:'AR', uiLang:'AR', reviewerRole:'Leerling', profession:'Student'}), /تم حفظ تقييمك/);
 assert.equal(saved[4].id,1532437282); assert.equal(saved[4].row[7], 'Student');
+assert.equal(saved[4].row[9], 'CUR001-K01-L01-G3-AR'); assert.equal(saved[4].row[10], 'Niet vastgesteld');
+assert.equal(new Set(saved.map(x => x.row[8])).size, saved.length);
+prepared = false; assert.match(post(valid), /niet gelukt/); assert.equal(saved.length, 5); prepared = true;
 assert.match(post({...valid, reviewerRole:'=HYPERLINK(1)'}), /niet gelukt/);
 assert.match(post({...valid, profession:'onbekend'}), /niet gelukt/);
 assert.match(context.doPost({parameter:valid,parameters:{reviewerRole:['Imam','Leerling']}}), /niet gelukt/);

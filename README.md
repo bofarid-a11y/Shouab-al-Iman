@@ -11,7 +11,7 @@ De website is statisch. Pagina's, stylesheets en links zijn relatief, zodat de p
 
 ## Beoordelingen
 
-GitHub Pages verwerkt geen Netlify Forms. De formulieren zijn daarom uitgeschakeld en tonen dat verzenden niet beschikbaar is. Er worden geen inzendingen opgeslagen. Om beoordelingen te ontvangen is een externe formulierdienst of eigen backend nodig; kies die met aandacht voor privacy en test de ontvangst voordat de formulieren worden ingeschakeld. `thanks-nl.html` en `thanks-ar.html` zijn overgenomen als archiefmateriaal en worden niet vanuit de uitgeschakelde formulieren aangeroepen.
+GitHub Pages verwerkt geen Netlify Forms. De website gebruikt een Google Apps Script-webapp om beoordelingen op te slaan in aparte Nederlandse en Arabische tabbladen. De opslag van testverzoeken via Apps Script is gecontroleerd; een volledige inzending via de vernieuwde website in een echte browser moet nog worden bevestigd. Zonder geldig endpoint blijven de formulieren uitgeschakeld. `thanks-nl.html` en `thanks-ar.html` zijn archiefmateriaal. De voorbereide uitbreiding voor kwaliteitsregistratie is **nog niet geïmplementeerd in de live webapp**; zie [het plan](audits/evaluatiemodule-plan.md) en [de integratie-instructies](integrations/google-apps-script/README.md).
 
 ## Stand van controles
 
