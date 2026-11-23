@@ -1,0 +1,8 @@
+/* Small, non-overlapping project mark; uses the existing logo asset. */
+.corner-logo{display:block;float:inline-end;width:96px;height:auto;max-width:25%;margin:0 0 8px 14px}
+[dir="rtl"] .corner-logo{margin:0 14px 8px 0}
+.brand-header::after,.brand-section::after{content:"";display:block;clear:both}
+.bar .brand-name{display:flex;align-items:center;gap:10px;min-width:0}
+.bar .brand-name .corner-logo{float:none;flex:none;width:62px;max-width:none;margin:0}
+@media screen and (max-width:500px){.corner-logo{width:74px}.bar .brand-name .corner-logo{width:48px}.bar b{font-size:1.1rem}}
+@media print{.corner-logo{width:70px}}
