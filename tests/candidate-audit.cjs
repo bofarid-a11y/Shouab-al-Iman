@@ -11,6 +11,9 @@ for (const lang of ['NL','AR']) for (const grade of [3,4,5,6,7,8]) {
   assert.equal(d.documentElement.lang,lang.toLowerCase());assert.equal(q('#grade').value,String(grade));
   assert(q('#story').textContent.trim());assert.equal(d.querySelectorAll('#quizOptions input').length,3);
   assert(q('#checkAnswer').textContent.trim()); assert(q('#needHelp').textContent.trim()); assert(q('#activityDone').textContent.trim());
+  assert(q('#activitySkip').textContent.trim()); assert(!q('#foot')); assert(q('#sub').textContent.includes(lang === 'NL' ? 'Proefles' : 'تجريبي'));
+  assert(!d.body.textContent.includes('CUR001 · v0.4 CANDIDATE')); assert(!d.body.textContent.includes('niet-goedgekeurde demonstratie'));
+  q('#activityDone').click(); assert(q('#feedback').textContent.trim()); q('#activitySkip').click(); assert(q('#feedback').textContent.trim());
   assert(q('#evaluate').href.includes(`reviewGrade=${grade}&reviewLang=${lang}`));
   q('#checkAnswer').click();assert(q('#feedback').textContent.trim());
   d.querySelectorAll('#quizOptions input')[1].checked=true; q('#checkAnswer').click();assert(!q('#tryAgain').hidden);assert(q('#feedback').textContent.trim());
