@@ -1,0 +1,13 @@
+
+*{box-sizing:border-box}body{background:#f8f7f1;color:#18392e;overflow-wrap:break-word}
+header{background:#103b32;border:0}header>div,main{max-width:1100px}
+.bar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff35;padding-block:16px}
+.bar b{font: bold 1.45rem Georgia,serif}.bar nav{display:flex;flex-wrap:wrap}.bar a{padding:0 12px;min-width:44px}.bar details{display:none}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,240px);gap:48px;align-items:center;padding-block:48px 58px}
+.eyebrow{color:#e7cf9b}.hero h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.2;max-width:14ch;margin:.35em 0}.hero p{max-width:47ch;color:#e5eee7}
+.cover{position:relative;background:repeating-linear-gradient(45deg,transparent 0 15px,#f4d9a714 15px 16px),#216051;border:1px solid #b99c66;border-inline-start:9px double #b49866;outline:1px solid #c9b580;outline-offset:-13px;border-radius:4px 14px 14px 4px;transform:rotate(-5deg);aspect-ratio:4/5;max-width:180px;width:100%;margin:auto;box-shadow:6px 5px 0 #d2c8ab,10px 10px 15px #001b1780;display:grid;place-content:center;text-align:center;color:#f7e4b2}
+.cover span{font:bold 2.35rem/1.45 Georgia,serif}.cover i{margin:14px auto;width:45%;border-bottom:1px solid}
+main{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:22px;align-items:start;padding-block:30px}
+section{border-radius:6px;border-top:4px solid #bc9c5e}.sheets{margin-top:1rem;border-top:1px solid #ddd5c2;padding-top:.5rem}
+summary,.sheets a{cursor:pointer;padding:10px;min-height:44px;min-width:44px}.sheets div{display:flex;gap:5px;flex-wrap:wrap}.sheets a{color:#155942}select,textarea{max-width:100%;min-width:0}img,video,iframe,embed,object{max-width:100%}img,video{height:auto}
+@media(max-width:700px){main{display:block}.bar>nav{display:none}.bar details{display:block}.bar details nav{position:absolute;inset-inline-end:16px;top:90%;padding:8px;background:#103b32;display:grid;border:1px solid #a8bbad}.hero{gap:18px;grid-template-columns:minmax(0,1fr) 78px;padding-block:30px}.cover span{font-size:1.05rem}.cover i{margin:4px auto}.cover{outline-offset:-6px}.hero h1{font-size:clamp(2rem,8vw,3rem)}main,.bar,.hero{padding-inline:16px}}
