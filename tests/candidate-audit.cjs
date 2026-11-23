@@ -20,8 +20,9 @@ for (const lang of ['NL','AR']) for (const grade of [3,4,5,6,7,8]) {
   q('#tryAgain').click();assert(!d.querySelector('input[name=lessonChoice]:checked'));
   d.querySelectorAll('#quizOptions input')[0].checked=true; q('#checkAnswer').click();assert(!q('#reflection').hidden);assert(q('#feedback').textContent.trim());
   const recorded=JSON.parse(q('#recordedStories').textContent);assert.equal(recorded[`${grade}-${lang}`],q('#story').textContent);
-  assert(fs.existsSync(require('path').join(require('path').dirname(path),`assets/lesson-audio/CUR001-L01-G${grade}-${lang}-07x.mp3`)));
-  q('#speak').click();assert.equal(dom.window.audioPlayed,`assets/lesson-audio/CUR001-L01-G${grade}-${lang}-07x.mp3`);assert(!q('#storyAudio').hidden);
+  const speed=grade>=6?'1x':'07x';
+  assert(fs.existsSync(require('path').join(require('path').dirname(path),`assets/lesson-audio/CUR001-L01-G${grade}-${lang}-${speed}.mp3`)));
+  q('#speak').click();assert.equal(dom.window.audioPlayed,`assets/lesson-audio/CUR001-L01-G${grade}-${lang}-${speed}.mp3`);assert(!q('#storyAudio').hidden);
   q('#grade').value=String(grade===3?4:3);q('#grade').dispatchEvent(new dom.window.Event('change'));assert(q('#storyAudio').hidden);assert(!q('#storyAudio').getAttribute('src'));
   assert.deepEqual(errors,[]);checks++;
  }catch(e){issues.push(`${grade}-${lang}: ${e.message}; JS errors: ${errors.join('; ')}`)}
