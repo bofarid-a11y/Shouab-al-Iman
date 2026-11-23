@@ -17,5 +17,13 @@ assert.match(post({...valid,uiLang:'AR',suggestion:'=IMPORTXML("bad")'}), /تم 
 assert.match(post({...valid,lang:'AR',uiLang:'NL',suggestion:'تعليق'}), /Je beoordeling is opgeslagen/); assert.equal(saved[2].id,1532437282); assert.equal(saved[2].row[5],'تعليق');
 assert.match(post({...valid,suggestion:'x'.repeat(3001)}), /niet gelukt/); assert.equal(saved.length, 3);
 assert.match(context.doPost({parameter:valid,parameters:{grade:['3','4']}}), /niet gelukt/); assert.equal(saved.length, 3);
-throws = true; assert.match(post(valid), /niet gelukt/); assert.equal(saved.length,3);
+assert.match(post({...valid, reviewerRole:'Imam', profession:'Imam / islamitisch docent'}), /Je beoordeling is opgeslagen/);
+assert.equal(saved[3].row[6], 'Imam'); assert.equal(saved[3].row[7], 'Imam / islamitisch docent');
+assert.match(post({...valid, lang:'AR', uiLang:'AR', reviewerRole:'Leerling', profession:'Student'}), /تم حفظ تقييمك/);
+assert.equal(saved[4].id,1532437282); assert.equal(saved[4].row[7], 'Student');
+assert.match(post({...valid, reviewerRole:'=HYPERLINK(1)'}), /niet gelukt/);
+assert.match(post({...valid, profession:'onbekend'}), /niet gelukt/);
+assert.match(context.doPost({parameter:valid,parameters:{reviewerRole:['Imam','Leerling']}}), /niet gelukt/);
+assert.equal(saved.length, 5);
+throws = true; assert.match(post(valid), /niet gelukt/); assert.equal(saved.length,5);
 console.log('OK: geldige en ongeldige inzendingen, beide talen, formule-injectie en opslagfout (met mocks).');
